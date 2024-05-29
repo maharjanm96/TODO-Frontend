@@ -1,11 +1,14 @@
 import React from "react";
-import TodoList from "./components/TodoLayout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TodoLayout from "./components/Pages/TodoLayout";
 
 const App = () => {
   return (
-    <div>
-      <TodoList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<TodoLayout />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

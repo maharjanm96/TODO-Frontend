@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const TodoList = () => {
+const TodoLayout = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [error, setError] = useState(null);
@@ -10,6 +10,7 @@ const TodoList = () => {
     try {
       const response = await axios.get(
         "https://mern-todobackend.vercel.app/api/todo"
+        //"http://localhost:3000/api/todo "
       );
       if (response.data && Array.isArray(response.data.todo)) {
         setTodos(response.data.todo);
@@ -29,7 +30,7 @@ const TodoList = () => {
     }
     try {
       const response = await axios.post(
-        "https://mern-todobackend.vercel.app//api/todo",
+        "https://mern-todobackend.vercel.app/api/todo",
         {
           item: newTodo,
         }
@@ -100,4 +101,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TodoLayout;
