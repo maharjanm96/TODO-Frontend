@@ -9,7 +9,7 @@ const TodoList = () => {
   const fetchTodos = async () => {
     try {
       const response = await axios.get(
-        "https://mern-todo-backend-chi.vercel.app/api/todo"
+        "https://mern-todo-backend-git-main-manish-maharjan-s-projects.vercel.app/"
       );
       if (response.data && Array.isArray(response.data.todo)) {
         setTodos(response.data.todo);
@@ -29,7 +29,7 @@ const TodoList = () => {
     }
     try {
       const response = await axios.post(
-        "https://mern-todo-backend-chi.vercel.app/api/todo",
+        "https://mern-todo-backend-git-main-manish-maharjan-s-projects.vercel.app/",
         {
           item: newTodo,
         }
@@ -47,7 +47,7 @@ const TodoList = () => {
   const deleteTodo = async (id) => {
     try {
       await axios.delete(
-        `https://mern-todo-backend-chi.vercel.app/api/todo/${id}`
+        `https://mern-todo-backend-git-main-manish-maharjan-s-projects.vercel.app//${id}`
       );
       setTodos(todos.filter((todo) => todo._id !== id));
     } catch (error) {
