@@ -8,7 +8,9 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/todo");
+      const response = await axios.get(
+        "https://mern-todo-backend-chi.vercel.app/api/todo"
+      );
       if (response.data && Array.isArray(response.data.todo)) {
         setTodos(response.data.todo);
       } else {
@@ -26,9 +28,12 @@ const TodoList = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:3000/api/todo", {
-        item: newTodo,
-      });
+      const response = await axios.post(
+        "https://mern-todo-backend-chi.vercel.app/api/todo",
+        {
+          item: newTodo,
+        }
+      );
       if (response.data && response.data.todo) {
         setTodos([...todos, response.data.todo]);
         setNewTodo("");
@@ -41,7 +46,9 @@ const TodoList = () => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/todo/${id}`);
+      await axios.delete(
+        `https://mern-todo-backend-chi.vercel.app/api/todo/${id}`
+      );
       setTodos(todos.filter((todo) => todo._id !== id));
     } catch (error) {
       setError("Error occurred while deleting todo");
